@@ -36,7 +36,7 @@ function makeText(event) {
     let text = freshness() + "\n" + "https://docs.google.com/spreadsheets/d/1sEKCFs6oNzbEkRgt2Z2aq_4mOGQXMU7dcFTXPNYf-wg/edit#gid=1405667253";
     reply(event, [text]);
   } else if (recText == "清掃") {
-    let text = "準備中";
+    let text = "準備中。。";
 
     reply(event, [text]);
   } else if (recText == "新人") {
@@ -73,11 +73,12 @@ function makeText(event) {
     let text = "ファイル共有解除フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSerdV5RtN2fb5h_nSeBQkZSEFzcWM4tYKWJshPxhZI8YiMiBw/viewform";
     reply(event, [text]);
   } else if (recText == "統計") {
-    let text = "※この内容は毎朝４～５時に更新されるものです。";
+    let text = "▼この内容は毎朝４～５時に更新されるものです。";
     text = text + "\n\n" + bbsLib.getSheetByIdGid(id_bbLog, gid_useSumDay).getRange(1, 1).getNote();//メールの内容をメモしておいた
     reply(event, [text]);
   } else {
-    let text = "次のいずれかのテキストを入力して下さい。。\nマニュアル\n発注\n週タスク\n鮮度\n清掃\n新人\n新人作成\nファイル共有登録\nファイル共有解除\n統計";
+    let text = "次のいずれかのテキストを入力して下さい。\n\nマニュアル\n発注\n週タスク\n鮮度\n清掃\n新人\n新人作成\nファイル共有登録\nファイル共有解除\n統計";
+    text = text + "\n\nこのbot、スプシの説明書▼\n" + "https://docs.google.com/document/d/19QqDWvmsijty6YQT8pOHgZtVkd0FY-uWVSeOOVSAYs4/edit";
     reply(event, [text]);
   }
 
