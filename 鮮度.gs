@@ -4,7 +4,7 @@ function freshness() {
   //鮮度表
   const sheet = bbsLib.getSheetByIdGid(id_bb, gid_fcheck);
   var maxrow = sheet.getLastRow();
-  var maxcol = sheet.getLastColumn() - 1;//ログ列は読まない
+  var maxcol = sheet.getLastColumn();
   var sheet_val = sheet.getRange(1, 1, maxrow, maxcol).getDisplayValues();
   var sheet_note = sheet.getRange(1, 1, maxrow, maxcol).getNotes();
   var n_white = 0;
