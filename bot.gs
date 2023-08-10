@@ -24,16 +24,16 @@ function makeText(event) {
   var recText = event.message.text;//受信したテキスト
 
   if (recText == "マニュアル") {
-    let text = "マニュアル類フォルダ\n" + "https://drive.google.com/drive/folders/1WuT2ODP78F1Z3Vik3JZE5OQo388h3vHz?openExternalBrowser=1";
+    let text = "マニュアル類フォルダ\n" + "https://drive.google.com/drive/folders/1WuT2ODP78F1Z3Vik3JZE5OQo388h3vHz";
     reply(event, [text]);
   } else if (recText == "発注") {
-    let text = ordertask() + "\n" + "https://docs.google.com/spreadsheets/d/1sEKCFs6oNzbEkRgt2Z2aq_4mOGQXMU7dcFTXPNYf-wg/edit#gid=648587868?openExternalBrowser=1";
+    let text = ordertask() + "\n" + "https://docs.google.com/spreadsheets/d/1sEKCFs6oNzbEkRgt2Z2aq_4mOGQXMU7dcFTXPNYf-wg/edit#gid=648587868";
     reply(event, [text]);
   } else if (recText == "週タスク") {
-    let text = weektask() + "?openExternalBrowser=1";//url埋め込み済み式
+    let text = weektask();//url埋め込み済み式
     reply(event, [text]);
   } else if (recText == "鮮度") {
-    let text = freshness() + "\n" + "https://docs.google.com/spreadsheets/d/1sEKCFs6oNzbEkRgt2Z2aq_4mOGQXMU7dcFTXPNYf-wg/edit#gid=1405667253?openExternalBrowser=1";
+    let text = freshness() + "\n" + "https://docs.google.com/spreadsheets/d/1sEKCFs6oNzbEkRgt2Z2aq_4mOGQXMU7dcFTXPNYf-wg/edit#gid=1405667253";
     reply(event, [text]);
   } else if (recText == "清掃") {
     let text = "準備中";
@@ -43,7 +43,7 @@ function makeText(event) {
 
     var sinjinAry = sinjin();//情報をとってくる
     if (sinjinAry[0][0][0] == "新人はいない") {
-      let text = "現在新人表はありません。\n作成フォームはこちら↓\n" + "https://docs.google.com/forms/d/e/1FAIpQLSc0yBXDQc6dxrZxiMApc5tT0KgOCCHvvKeQuMmowoUGxQXPKw/viewform?openExternalBrowser=1";
+      let text = "現在新人表はありません。\n作成フォームはこちら↓\n" + "https://docs.google.com/forms/d/e/1FAIpQLSc0yBXDQc6dxrZxiMApc5tT0KgOCCHvvKeQuMmowoUGxQXPKw/viewform";
       reply(event, [text]);
 
     } else {//新人がいる場合
@@ -56,7 +56,7 @@ function makeText(event) {
         for (let nb = 1; nb <= sinjinAry[na].length - 1; nb++) {//カテゴリの数だけテキストを追加
           text = text + "\n" + sinjinAry[na][nb][0] + "：" + sinjinAry[na][nb][2] + "/" + sinjinAry[na][nb][1] + "(" + sinjinAry[na][nb][3] + "%)";
         }
-        text = text + "\n" + sinjinAry[na][0][1] + "?openExternalBrowser=1";//最後にURL
+        text = text + "\n" + sinjinAry[na][0][1] + "";//最後にURL
         textAry[na] = text;
       }
 
@@ -64,13 +64,13 @@ function makeText(event) {
     }
 
   } else if (recText == "新人作成") {
-    let text = "新人作成フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSc0yBXDQc6dxrZxiMApc5tT0KgOCCHvvKeQuMmowoUGxQXPKw/viewform?openExternalBrowser=1";
+    let text = "新人作成フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSc0yBXDQc6dxrZxiMApc5tT0KgOCCHvvKeQuMmowoUGxQXPKw/viewform";
     reply(event, [text]);
   } else if (recText == "ファイル共有登録") {
-    let text = "ファイル共有登録フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSexh7ngMQJqgerMn4OK3QFNwTFKLCMilmEWj4dmp1MS7vwi5Q/viewform?openExternalBrowser=1";
+    let text = "ファイル共有登録フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSexh7ngMQJqgerMn4OK3QFNwTFKLCMilmEWj4dmp1MS7vwi5Q/viewform";
     reply(event, [text]);
   } else if (recText == "ファイル共有解除") {
-    let text = "ファイル共有解除フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSerdV5RtN2fb5h_nSeBQkZSEFzcWM4tYKWJshPxhZI8YiMiBw/viewform?openExternalBrowser=1";
+    let text = "ファイル共有解除フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSerdV5RtN2fb5h_nSeBQkZSEFzcWM4tYKWJshPxhZI8YiMiBw/viewform";
     reply(event, [text]);
   } else if (recText == "統計") {
     let text = "※この内容は毎朝４～５時に更新されるものです。";
