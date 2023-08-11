@@ -1,7 +1,10 @@
-//function pushTest() {
-//  var text = "てすてす";
-//  pushToUsers([text]);
-//}
+//メールの件名と内容を統合してプッシュ通知
+function pushSB(subject, body) {
+  var text = "〇自動プッシュ配信です。";
+  text = text + "\n件名：" + subject + "\n内容：\n" + body;
+
+  pushToUsers([text]);
+}
 
 //プッシュ登録済みのユーザーにプッシュ通知する（★textAryは配列）
 function pushToUsers(textAry) {
@@ -21,9 +24,6 @@ function pushToUsers(textAry) {
 //複数のユーザーにプッシュ通知する（★textAryは配列）
 //userAry="U4af4980629..."にたいなuserIdの★配列※最大５００人らしい。
 function push(userAry, textAry) {
-
-  Logger.log(userAry);
-  Logger.log(textAry);
 
   var pushUrl = "https://api.line.me/v2/bot/message/multicast";
 

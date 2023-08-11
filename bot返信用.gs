@@ -79,7 +79,7 @@ function makeText(event) {
     reply(event, [text]);
 
   } else if (recText == "統計") {
-    let text = "▼この内容は毎朝４～５時に更新されるものです。";
+    let text = "▼この内容は通常毎朝４～５時に更新されるものです。";
     text = text + "\n\n" + bbsLib.getSheetByIdGid(id_bbLog, gid_useSumDay).getRange(1, 1).getNote();//メールの内容をメモしておいた
     reply(event, [text]);
 
@@ -98,10 +98,10 @@ function makeText(event) {
 
       let text = "笠間店の情報をプッシュ通知します。";
       text = text + "\n通知タイミングは以下です。";
-      text = text + "\n\n〇発注が未報告だった場合の警告（朝４～５時）";
+      text = text + "\n\n〇発注が未報告だった時の警告（朝４～５時）";
       text = text + "\n〇日報（朝４～５時）";
       text = text + "\n〇新人表作成時・手動削除時";
-      text = text + "\n〇ファイル共有登録時・解除時";
+      text = text + "\n〇ファイル共有登録時・氏名変更時・解除時";
       text = text + "\n\n※解除したい場合は、「プッシュ登録解除」コマンドを送信して下さい。";
       reply(event, [text]);
     }
