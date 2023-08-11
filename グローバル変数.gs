@@ -10,6 +10,7 @@ const gid_fcheck = "1405667253";//鮮度
 //基本バインダーログ
 const id_bbLog = "17bZ83U_NeHXLT__NOV0zfHd2B8XZIBEgKfd_akNZDuY";
 const gid_botTemp = "947575838";//bot一時
+const gid_botPush = "1503321267";//botプッシュ登録者リスト
 const gid_useSumDay = "733648789";//使用統計数日ごと
 
 //本日日付定義
@@ -25,6 +26,12 @@ const today_ymd = Utilities.formatDate(today, 'JST', 'yyyy/MM/dd');
 const today_ymdd = today_ymd + " " + today_wjpn;
 const today_hm = Utilities.formatDate(today, 'JST', 'HH:mm');
 const today_ymddhm = today_ymdd + " " + today_hm;
+
+//※ユーザー数取得用
+const today_forApi = Utilities.formatDate(today, 'JST', 'yyyyMMdd');
+
+//スクリプトプロパティに保管されているLineのトークン
+const channelAccessToken = PropertiesService.getScriptProperties().getProperty("channel_access_token");
 
 
 
