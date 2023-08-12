@@ -1,7 +1,6 @@
 //メールの件名と内容を統合してプッシュ通知
 function pushSB(subject, body) {
-  var text = "〇自動プッシュ配信です。";
-  text = text + "\n件名：" + subject + "\n内容：\n" + body;
+  var text = "※自動プッシュ配信\n件名：" + subject + "\n内容：\n" + body;
 
   pushToUsers([text]);
 }

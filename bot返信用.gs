@@ -40,7 +40,7 @@ function makeText(event) {
     reply(event, [text]);
 
   } else if (recText == "清掃") {
-    let text = "準備中。。";
+    let text = cleanliness() + "\n" + "https://docs.google.com/spreadsheets/d/1sEKCFs6oNzbEkRgt2Z2aq_4mOGQXMU7dcFTXPNYf-wg/edit#gid=672501890";
     reply(event, [text]);
 
   } else if (recText == "新人") {
@@ -70,6 +70,10 @@ function makeText(event) {
     let text = "新人作成フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSc0yBXDQc6dxrZxiMApc5tT0KgOCCHvvKeQuMmowoUGxQXPKw/viewform";
     reply(event, [text]);
 
+  } else if (recText == "新人削除") {
+    let text = "新人削除フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSe04FTp2UNkWXTZdRXgjNb-BPGxMm6l35SfvYyiBFifqmyIzw/viewform";
+    reply(event, [text]);
+
   } else if (recText == "ファイル共有登録") {
     let text = "ファイル共有登録フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSexh7ngMQJqgerMn4OK3QFNwTFKLCMilmEWj4dmp1MS7vwi5Q/viewform";
     reply(event, [text]);
@@ -96,17 +100,17 @@ function makeText(event) {
       let logary = [today_ymddhm, uid, getDisplayName(uid)];
       bbsLib.addLogFirst(pushSheet, 2, [logary], 3, 501);//MAX500人なので古いのは削除しちゃう
 
-      let text = "笠間店の情報をプッシュ通知します。";
-      text = text + "\n通知タイミングは以下です。";
-      text = text + "\n\n〇発注が未報告だった時の警告（朝４～５時）";
-      text = text + "\n〇日報（朝４～５時）";
-      text = text + "\n〇新人表作成時・手動削除時";
-      text = text + "\n〇ファイル共有登録時・氏名変更時・解除時";
-      text = text + "\n\n※解除したい場合は、「プッシュ登録解除」コマンドを送信して下さい。";
+      let text = "プッシュ通知登録を行いました。";
+      text = text + "\n\n※通知タイミング：";
+      text = text + "\n・発注が未報告だった時の警告（朝４～５時）";
+      text = text + "\n・日報（朝４～５時）";
+      text = text + "\n・新人表作成時・手動削除時";
+      text = text + "\n・ファイル共有登録時・氏名変更時・解除時";
+      text = text + "\n\n※解除したい場合は、「プッシュ通知解除」コマンドを送信して下さい。";
       reply(event, [text]);
     }
 
-  } else if (recText == "プッシュ登録解除") {
+  } else if (recText == "プッシュ通知解除") {
     let pushSheet = bbsLib.getSheetByIdGid(id_bbLog, gid_botPush);
     let uid = event.source.userId;
     let row = bbsLib.searchInCol(pushSheet, 2, uid);//登録済みかどうか
@@ -123,7 +127,7 @@ function makeText(event) {
     }
 
   } else {
-    let text = "次のいずれかのテキストを入力して下さい。\n\nマニュアル\n発注\n週タスク\n鮮度\n清掃\n新人\n新人作成\nファイル共有登録\nファイル共有解除\n統計\nプッシュ通知登録\nプッシュ登録解除";
+    let text = "次のいずれかのテキストを入力して下さい。\n\nマニュアル\n発注\n週タスク\n鮮度\n清掃\n新人\n新人作成\n新人削除\nファイル共有登録\nファイル共有解除\n統計\nプッシュ通知登録\nプッシュ通知解除";
     text = text + "\n\nこのbot、スプシの説明書▼\n" + "https://docs.google.com/document/d/19QqDWvmsijty6YQT8pOHgZtVkd0FY-uWVSeOOVSAYs4/edit";
     reply(event, [text]);
 

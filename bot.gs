@@ -39,6 +39,8 @@ function getFBNum() {
     return { followS, blockS };
     
   } catch (ex) {
+    
+    Logger.log("getFBNum exception");
     return { followS, blockS };//分からなければ0を返す
   }
 
