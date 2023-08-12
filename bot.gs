@@ -1,3 +1,23 @@
+//groupIdからgroupNameを取得
+function getGroupName(groupId) {
+  try {
+    var options = {
+      "method": "GET",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${channelAccessToken}`,
+      },
+    };
+    var response = UrlFetchApp.fetch(`https://api.line.me/v2/bot/group/${groupId}/summary`, options);
+    var responseObj = JSON.parse(response.getContentText());
+    return responseObj.groupName;
+  } catch (ex) {
+    return "";//分からなければ空文字列を返す（★ブロックされている場合やプライバシーポリシーに未同意の場合）
+  }
+}
+
+
+
 //userIdからLINE表示氏名を取得
 function getDisplayName(userId) {
   try {
@@ -37,9 +57,9 @@ function getFBNum() {
     blockS = responseObj.blocks;
 
     return { followS, blockS };
-    
+
   } catch (ex) {
-    
+
     Logger.log("getFBNum exception");
     return { followS, blockS };//分からなければ0を返す
   }

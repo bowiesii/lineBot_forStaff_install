@@ -7,12 +7,15 @@ function doPost(e) {
     if (event.type == 'message') {
       if (event.message.type == 'text') {//受信したのが普通のテキストメッセージだったとき
 
-        makeText(event);
+        if (event.source.groupId == null) {//★グループトークには返信はしない
+          //送信
+          makeText(event);
+        }
 
         //一時ログ
-        var logary = [today_ymddhm, event.source.userId, getDisplayName(event.source.userId), event.message.text];
+        var logary = [today_ymddhm, event.message.text, event.source.userId, getDisplayName(event.source.userId), event.source.groupId, getGroupName(event.source.groupId)];
         var tempLogSheet = bbsLib.getSheetByIdGid(id_bbLog, gid_botTemp);
-        bbsLib.addLogLast(tempLogSheet, [logary], 4);
+        bbsLib.addLogLast(tempLogSheet, [logary], 6);
 
       }
     }
