@@ -4,7 +4,7 @@ function pushToGroup() {
   var text = `ご無沙汰しています。浦野です。
 新システムの入口みたいなbotを作りましたので、私「笠間店スタッフ用bot」を友達に追加お願いします。
 （システム自体も試験段階につき強制ではありません）
-詳細は友達追加すればあいさつ文で見れますが、しなくても以下から見れます。
+詳細は追加後にあいさつ文で見れますが、しなくても以下から見れます。
 https://docs.google.com/document/d/19QqDWvmsijty6YQT8pOHgZtVkd0FY-uWVSeOOVSAYs4/edit
 `;
 
