@@ -17,7 +17,6 @@ function getGroupName(groupId) {
 }
 
 
-
 //userIdからLINE表示氏名を取得
 function getDisplayName(userId) {
   try {
@@ -35,6 +34,7 @@ function getDisplayName(userId) {
     return "";//分からなければ空文字列を返す（★ブロックされている場合やプライバシーポリシーに未同意の場合）
   }
 }
+
 
 //botフォロワー数・ブロック数を取得
 function getFBNum() {
