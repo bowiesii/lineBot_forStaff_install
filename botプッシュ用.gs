@@ -1,67 +1,3 @@
-//特定の★グループトークにプッシュメッセージ
-function pushToGroup() {
-
-  var groupId = "Cb8d44d7fdf524dc3dcdece2b3422cbbe";//★これはテストグループ。本番は入れ替える
-
-  //メッセージ内容
-  var text = `ご無沙汰しています。浦野です。
-私がボランティア的にマイペースで作っている新システムの入口みたいなbotを作りましたので、興味ある方は「笠間店スタッフ用bot」を友達に追加お願いします。
-（システム自体が試験段階につき強制ではまったくありません）
-詳細は追加後にあいさつ文で見れますが、しなくても以下から見れます。
-https://docs.google.com/document/d/19QqDWvmsijty6YQT8pOHgZtVkd0FY-uWVSeOOVSAYs4/edit
-`;
-
-  textAry = [text];
-  var pushUrl = "https://api.line.me/v2/bot/message/push";//単独プッシュ
-  var msgAry = [];
-  for (let n = 0; n <= textAry.length - 1; n++) {
-    msgAry[n] = { type: 'text', text: textAry[n] };
-  }
-  let postData = {
-    "to": groupId,
-    "messages": msgAry
-  };
-  let headers = {
-    "Content-Type": "application/json; charset=UTF-8",
-    'Authorization': 'Bearer ' + channelAccessToken,
-  };
-  let options = {
-    "method": "post",
-    "headers": headers,
-    "payload": JSON.stringify(postData)//送るデータをJSONに変換
-  };
-  return UrlFetchApp.fetch(pushUrl, options);
-}
-
-/*
-//フォロワー全員にプッシュメッセージ
-//→こっちからできる。https://manager.line.biz/account/@586bfamf/broadcast/create
-function pushToAllFollowers() {
-
-  var text = "てｓ";
-
-  textAry = [text];
-  var pushUrl = "https://api.line.me/v2/bot/message/broadcast";//ブロードキャスト
-  var msgAry = [];
-  for (let n = 0; n <= textAry.length - 1; n++) {
-    msgAry[n] = { type: 'text', text: textAry[n] };
-  }
-  let postData = {
-    "messages": msgAry
-  };
-  let headers = {
-    "Content-Type": "application/json; charset=UTF-8",
-    'Authorization': 'Bearer ' + channelAccessToken,
-  };
-  let options = {
-    "method": "post",
-    "headers": headers,
-    "payload": JSON.stringify(postData)//送るデータをJSONに変換
-  };
-  return UrlFetchApp.fetch(pushUrl, options);
-}
-*/
-
 //メールの件名と内容を統合してプッシュ通知
 function pushSB(subject, body) {
   var text = "※自動プッシュ配信\n件名：" + subject + "\n内容：\n" + body;
@@ -113,3 +49,69 @@ function push(userAry, textAry) {
 
   return UrlFetchApp.fetch(pushUrl, options);
 }
+
+/*
+//特定の★グループトークにプッシュメッセージ
+//ここから可能。https://chat.line.biz/U4509fb152ce68b66c215432e3f8dfb5c
+function pushToGroup() {
+
+  var groupId = "Cb8d44d7fdf524dc3dcdece2b3422cbbe";//★これはテストグループ。
+
+  //メッセージ内容
+  var text = `メッセージ１行目
+メッセージ２行目
+`;
+
+  textAry = [text];
+  var pushUrl = "https://api.line.me/v2/bot/message/push";//単独プッシュ
+  var msgAry = [];
+  for (let n = 0; n <= textAry.length - 1; n++) {
+    msgAry[n] = { type: 'text', text: textAry[n] };
+  }
+  let postData = {
+    "to": groupId,
+    "messages": msgAry
+  };
+  let headers = {
+    "Content-Type": "application/json; charset=UTF-8",
+    'Authorization': 'Bearer ' + channelAccessToken,
+  };
+  let options = {
+    "method": "post",
+    "headers": headers,
+    "payload": JSON.stringify(postData)//送るデータをJSONに変換
+  };
+  return UrlFetchApp.fetch(pushUrl, options);
+}
+*/
+
+/*
+//フォロワー全員にプッシュメッセージ
+//ここから可能。https://manager.line.biz/account/@586bfamf/broadcast/create
+function pushToAllFollowers() {
+
+  var text = `メッセージ１行目
+メッセージ２行目
+`;
+
+  textAry = [text];
+  var pushUrl = "https://api.line.me/v2/bot/message/broadcast";//ブロードキャスト
+  var msgAry = [];
+  for (let n = 0; n <= textAry.length - 1; n++) {
+    msgAry[n] = { type: 'text', text: textAry[n] };
+  }
+  let postData = {
+    "messages": msgAry
+  };
+  let headers = {
+    "Content-Type": "application/json; charset=UTF-8",
+    'Authorization': 'Bearer ' + channelAccessToken,
+  };
+  let options = {
+    "method": "post",
+    "headers": headers,
+    "payload": JSON.stringify(postData)//送るデータをJSONに変換
+  };
+  return UrlFetchApp.fetch(pushUrl, options);
+}
+*/
