@@ -26,7 +26,7 @@ function sinjin() {
           catNum = catNum + 1;
           sinjinAry[sinjinNum][catNum] = [];
           sinjinAry[sinjinNum][catNum][0] = valueAry[row][0];//カテゴリ名
-          sinjinAry[sinjinNum][catNum][1] = 0;//スキルの数
+          sinjinAry[sinjinNum][catNum][1] = 0;//スキルの数（不要・空白は除く）
           sinjinAry[sinjinNum][catNum][2] = 0;//済（〇、◎）の数
           sinjinAry[sinjinNum][catNum][3] = 0;//済の割合
           Logger.log("another category " + sinjinAry[sinjinNum][catNum][0]);
@@ -35,15 +35,18 @@ function sinjin() {
           valueAry[row][0] = valueAry[row][0].replace(/\s/g, "");//スキル列：空白改行削除
 
           if (valueAry[row][0] != "") {//スキル欄が空白セルだったらスルー
-            sinjinAry[sinjinNum][catNum][1] = sinjinAry[sinjinNum][catNum][1] + 1;//スキル数＋１
+            if (valueAry[row][1] != "不要") {//不要登録されていてもスルー
 
-            if (valueAry[row][1] == "◎" || valueAry[row][1] == "〇") {//〇は漢数字
-              sinjinAry[sinjinNum][catNum][2] = sinjinAry[sinjinNum][catNum][2] + 1;//完了数＋１
+              sinjinAry[sinjinNum][catNum][1] = sinjinAry[sinjinNum][catNum][1] + 1;//スキル数＋１
+
+              if (valueAry[row][1] == "◎" || valueAry[row][1] == "〇") {//〇は漢数字
+                sinjinAry[sinjinNum][catNum][2] = sinjinAry[sinjinNum][catNum][2] + 1;//完了数＋１
+              }
+
+              sinjinAry[sinjinNum][catNum][3] = Math.round((sinjinAry[sinjinNum][catNum][2] / sinjinAry[sinjinNum][catNum][1]) * 100);//割合更新
+
             }
-
-            sinjinAry[sinjinNum][catNum][3] = Math.round((sinjinAry[sinjinNum][catNum][2] / sinjinAry[sinjinNum][catNum][1]) * 100);//割合更新
           }
-
         }
       }
 
