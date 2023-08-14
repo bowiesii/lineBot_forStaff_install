@@ -136,6 +136,8 @@ function makeText(event) {
 
   } else {
     let text = "次のいずれかのテキストを入力して下さい。\n\nフォルダ\nマニュアル\n発注\n週タスク\n鮮度\n清掃\n新人\n新人作成\n新人削除\nファイル共有登録\nファイル共有解除\n統計\nプッシュ通知登録\nプッシュ通知解除";
+    text = text + "\n\n↙左下のボタンでtxt入力とメニューを切り替えられます。";
+    
     reply(event, [text]);
 
   }
