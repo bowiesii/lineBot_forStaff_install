@@ -32,6 +32,8 @@ function makeText(event) {
 
   } else if (recText == "マニュアル") {
     let text = "マニュアル類フォルダ\n" + "https://drive.google.com/drive/folders/1WuT2ODP78F1Z3Vik3JZE5OQo388h3vHz";
+    text = text + "\nこのbotとスプシの説明書\n" + "https://docs.google.com/document/d/19QqDWvmsijty6YQT8pOHgZtVkd0FY-uWVSeOOVSAYs4/edit";
+    text = text + "\nファイル共有説明書\n" + "https://docs.google.com/document/d/19PtDzWvegrorxDipjWGl1XyUdC7phHL2bIYAeKhNBIg/edit";
     reply(event, [text]);
 
   } else if (recText == "発注") {
@@ -134,7 +136,6 @@ function makeText(event) {
 
   } else {
     let text = "次のいずれかのテキストを入力して下さい。\n\nフォルダ\nマニュアル\n発注\n週タスク\n鮮度\n清掃\n新人\n新人作成\n新人削除\nファイル共有登録\nファイル共有解除\n統計\nプッシュ通知登録\nプッシュ通知解除";
-    text = text + "\n\nこのbot、スプシの説明書▼\n" + "https://docs.google.com/document/d/19QqDWvmsijty6YQT8pOHgZtVkd0FY-uWVSeOOVSAYs4/edit";
     reply(event, [text]);
 
   }

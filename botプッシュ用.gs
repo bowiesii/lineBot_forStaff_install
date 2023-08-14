@@ -3,6 +3,7 @@ function pushToGroup() {
 
   var groupId = "Cb8d44d7fdf524dc3dcdece2b3422cbbe";//★これはテストグループ。本番は入れ替える
 
+  //メッセージ内容
   var text = `ご無沙汰しています。浦野です。
 私がボランティア的にマイペースで作っている新システムの入口みたいなbotを作りましたので、興味ある方は「笠間店スタッフ用bot」を友達に追加お願いします。
 （システム自体が試験段階につき強制ではまったくありません）
@@ -32,8 +33,9 @@ https://docs.google.com/document/d/19QqDWvmsijty6YQT8pOHgZtVkd0FY-uWVSeOOVSAYs4/
   return UrlFetchApp.fetch(pushUrl, options);
 }
 
+/*
 //フォロワー全員にプッシュメッセージ
-//メンテ通知などに使う？
+//→こっちからできる。https://manager.line.biz/account/@586bfamf/broadcast/create
 function pushToAllFollowers() {
 
   var text = "てｓ";
@@ -58,7 +60,7 @@ function pushToAllFollowers() {
   };
   return UrlFetchApp.fetch(pushUrl, options);
 }
-
+*/
 
 //メールの件名と内容を統合してプッシュ通知
 function pushSB(subject, body) {
