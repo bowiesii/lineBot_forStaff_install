@@ -28,9 +28,6 @@ const today_ymdd = today_ymd + " " + today_wjpn;
 const today_hm = Utilities.formatDate(today, 'JST', 'HH:mm');
 const today_ymddhm = today_ymdd + " " + today_hm;
 
-//※ユーザー数取得用
-const today_forApi = Utilities.formatDate(today, 'JST', 'yyyyMMdd');
-
 //スクリプトプロパティに保管されているLineのトークン
 const channelAccessToken = PropertiesService.getScriptProperties().getProperty("channel_access_token");
 

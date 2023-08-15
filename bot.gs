@@ -37,10 +37,15 @@ function getDisplayName(userId) {
 
 
 //botフォロワー数・ブロック数を取得
+//集計が「翌日中に完了」なので２日前の日付を指定する。
 function getFBNum() {
 
   var followS = 0;
   var blockS = 0;
+
+  var today_2 = new Date(today);//この行はなんか必要らしい
+  today_2.setDate(today.getDate() - 2);//おとといにする
+  today_2 = Utilities.formatDate(today_2, "JST", "yyyyMMdd")
 
   try {
     var options = {
@@ -50,18 +55,20 @@ function getFBNum() {
         "Authorization": `Bearer ${channelAccessToken}`,
       },
     };
-    var response = UrlFetchApp.fetch(`https://api.line.me/v2/bot/insight/followers?date=${today_forApi}`, options);
+    var response = UrlFetchApp.fetch(`https://api.line.me/v2/bot/insight/followers?date=${today_2}`, options);
     var responseObj = JSON.parse(response.getContentText());
 
     followS = responseObj.followers;
     blockS = responseObj.blocks;
-
+    Logger.log(today_2 + " followS/blockS " + followS + "/" + blockS);
     return { followS, blockS };
 
   } catch (ex) {
-
+    followS = -10;
+    blockS = 0;
     Logger.log("getFBNum exception");
-    return { followS, blockS };//分からなければ0を返す
+    return { followS, blockS };//分からなければ-10,0を返す
+
   }
 
 }
