@@ -13,6 +13,7 @@ const id_bbLog = "17bZ83U_NeHXLT__NOV0zfHd2B8XZIBEgKfd_akNZDuY";
 const gid_botTemp = "947575838";//bot一時
 const gid_botPush = "1503321267";//botプッシュ登録者リスト
 const gid_useSumDay = "733648789";//使用統計数日ごと
+const gid_makeLogWeek = "1190023817";//週報作成ログ
 
 //本日日付定義
 //const today = new Date("2023/8/7");

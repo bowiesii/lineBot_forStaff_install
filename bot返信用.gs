@@ -135,15 +135,16 @@ function makeText(event) {
     reply(event, [text]);
 
   } else if (recText == "週報") {
-    let text = "準備中";
+    let text = "▼この内容は通常毎週月曜朝４～５時に更新されるものです。";
+    text = text + "\n\n" + bbsLib.getSheetByIdGid(id_bbLog, gid_makeLogWeek).getRange(1, 1).getNote();//メールの内容をメモしておいた
     reply(event, [text]);
 
-  } else if (recText == "期間統計作成フォーム") {
-    let text = "準備中";
+  } else if (recText == "期間統計作成") {
+    let text = "期間統計作成フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSdgae44u9oSJsaCthtboPJk4dw7v5K00mjQgxbD1RcSct6OOQ/viewform";
     reply(event, [text]);
 
   } else {
-    let text = "次のいずれかのテキストを入力して下さい。\n\nフォルダ\nマニュアル\n発注\n週タスク\n鮮度\n清掃\n新人\n新人作成\n新人削除\nファイル共有登録\nファイル共有解除\nプッシュ通知登録\nプッシュ通知解除\n日報\n週報\n期間統計作成フォーム";
+    let text = "次のいずれかのテキストを入力して下さい。\n\nフォルダ\nマニュアル\n発注\n週タスク\n鮮度\n清掃\n新人\n新人作成\n新人削除\nファイル共有登録\nファイル共有解除\nプッシュ通知登録\nプッシュ通知解除\n日報\n週報\n期間統計作成";
     text = text + "\n\n↙左下のボタンでtxt入力とメニューを切り替えられます。";
 
     reply(event, [text]);
