@@ -9,7 +9,7 @@ function weektask() {
   var sheet2 = bbsLib.getSheetByIdGid(id_bb, gid_wtask2);
   var sheet3 = bbsLib.getSheetByIdGid(id_bb, gid_wtask3);
 
-  //日付をB3から取り出し（ファイル名は変更できるため保護セルから）
+  //日付をB3から取り出し
   var sheet1_n = sheet1.getRange(3, 2).getDisplayValue();
   var sheet2_n = sheet2.getRange(3, 2).getDisplayValue();
   var sheet3_n = sheet3.getRange(3, 2).getDisplayValue();
@@ -53,7 +53,7 @@ function weektask() {
   }
 
   Logger.log(now);
-  var sheetary = ary[now][1].getRange(7, 1, 9, 2).getDisplayValues();//タスク１～９行目まで概要として出力
+  var sheetary = ary[now][1].getRange(6, 1, 9, 2).getDisplayValues();//６行目～９行ぶん概要として出力
 
   var wtSt = ary[now][1].getRange(3, 2).getDisplayValue() + "週作業進捗概要";
   for (let r = 0; r <= sheetary.length - 1; r++) {

@@ -50,68 +50,8 @@ function push(userAry, textAry) {
   return UrlFetchApp.fetch(pushUrl, options);
 }
 
-/*
 //特定の★グループトークにプッシュメッセージ
 //ここから可能。https://chat.line.biz/U4509fb152ce68b66c215432e3f8dfb5c
-function pushToGroup() {
 
-  var groupId = "Cb8d44d7fdf524dc3dcdece2b3422cbbe";//★これはテストグループ。
-
-  //メッセージ内容
-  var text = `メッセージ１行目
-メッセージ２行目
-`;
-
-  textAry = [text];
-  var pushUrl = "https://api.line.me/v2/bot/message/push";//単独プッシュ
-  var msgAry = [];
-  for (let n = 0; n <= textAry.length - 1; n++) {
-    msgAry[n] = { type: 'text', text: textAry[n] };
-  }
-  let postData = {
-    "to": groupId,
-    "messages": msgAry
-  };
-  let headers = {
-    "Content-Type": "application/json; charset=UTF-8",
-    'Authorization': 'Bearer ' + channelAccessToken,
-  };
-  let options = {
-    "method": "post",
-    "headers": headers,
-    "payload": JSON.stringify(postData)//送るデータをJSONに変換
-  };
-  return UrlFetchApp.fetch(pushUrl, options);
-}
-*/
-
-/*
 //フォロワー全員にプッシュメッセージ
 //ここから可能。https://manager.line.biz/account/@586bfamf/broadcast/create
-function pushToAllFollowers() {
-
-  var text = `メッセージ１行目
-メッセージ２行目
-`;
-
-  textAry = [text];
-  var pushUrl = "https://api.line.me/v2/bot/message/broadcast";//ブロードキャスト
-  var msgAry = [];
-  for (let n = 0; n <= textAry.length - 1; n++) {
-    msgAry[n] = { type: 'text', text: textAry[n] };
-  }
-  let postData = {
-    "messages": msgAry
-  };
-  let headers = {
-    "Content-Type": "application/json; charset=UTF-8",
-    'Authorization': 'Bearer ' + channelAccessToken,
-  };
-  let options = {
-    "method": "post",
-    "headers": headers,
-    "payload": JSON.stringify(postData)//送るデータをJSONに変換
-  };
-  return UrlFetchApp.fetch(pushUrl, options);
-}
-*/

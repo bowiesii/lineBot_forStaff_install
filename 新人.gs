@@ -12,13 +12,14 @@ function sinjin() {
       sinjinAry[sinjinNum] = [[]];
       sinjinAry[sinjinNum][0][0] = sheetS[na].getSheetName();//０にシート名
       sinjinAry[sinjinNum][0][1] = bbsLib.toUrl(id_bb, sheetS[na].getSheetId());//シートURL
-      sinjinAry[sinjinNum][0][2] = sheetS[na].getRange(3, 4).getDisplayValue();//最終更新
+      sinjinAry[sinjinNum][0][2] = sheetS[na].getRange(3, 4).getNote();//最終更新
       Logger.log("another sinjin " + sinjinAry[sinjinNum]);
 
       var catNum = 0;//カテゴリは１～
 
-      var colorAry = sheetS[na].getRange(6, 1, sheetS[na].getLastRow() - 5, 1).getFontColorObjects();//Colorクラスで取得される
-      var valueAry = sheetS[na].getRange(6, 1, sheetS[na].getLastRow() - 5, 2).getDisplayValues();
+      //５行目以降を読む
+      var colorAry = sheetS[na].getRange(5, 1, sheetS[na].getLastRow() - 4, 1).getFontColorObjects();//Colorクラスで取得される
+      var valueAry = sheetS[na].getRange(5, 1, sheetS[na].getLastRow() - 4, 2).getDisplayValues();
 
       for (let row = 0; row <= colorAry.length - 1; row++) {
         if (colorAry[row][0].asRgbColor().asHexString() == "#ffff00") {//文字色が黄色
