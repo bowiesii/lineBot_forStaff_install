@@ -32,8 +32,7 @@ function makeText(event) {
 
   } else if (recText == "マニュアル") {
     let text = "マニュアル類フォルダ\n" + "https://drive.google.com/drive/folders/1WuT2ODP78F1Z3Vik3JZE5OQo388h3vHz";
-    text = text + "\nこのbotとスプシの説明書\n" + "https://docs.google.com/document/d/19QqDWvmsijty6YQT8pOHgZtVkd0FY-uWVSeOOVSAYs4/edit";
-    text = text + "\nファイル共有説明書\n" + "https://docs.google.com/document/d/19PtDzWvegrorxDipjWGl1XyUdC7phHL2bIYAeKhNBIg/edit";
+    text = text + "\n笠間店システム説明書\n" + "https://docs.google.com/document/d/19QqDWvmsijty6YQT8pOHgZtVkd0FY-uWVSeOOVSAYs4/edit";
     reply(event, [text]);
 
   } else if (recText == "発注") {
@@ -76,11 +75,11 @@ function makeText(event) {
     }
 
   } else if (recText == "新人作成") {
-    let text = "新人作成フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSc0yBXDQc6dxrZxiMApc5tT0KgOCCHvvKeQuMmowoUGxQXPKw/viewform";
+    let text = "新人表作成フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSc0yBXDQc6dxrZxiMApc5tT0KgOCCHvvKeQuMmowoUGxQXPKw/viewform";
     reply(event, [text]);
 
   } else if (recText == "新人削除") {
-    let text = "新人削除フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSe04FTp2UNkWXTZdRXgjNb-BPGxMm6l35SfvYyiBFifqmyIzw/viewform";
+    let text = "新人表削除フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSe04FTp2UNkWXTZdRXgjNb-BPGxMm6l35SfvYyiBFifqmyIzw/viewform";
     reply(event, [text]);
 
   } else if (recText == "ファイル共有登録") {
