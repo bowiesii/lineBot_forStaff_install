@@ -91,42 +91,12 @@ function makeText(event) {
     reply(event, [text]);
 
   } else if (recText == "プッシュ通知登録") {
-    let pushSheet = bbsLib.getSheetByIdGid(id_bbLog, gid_botPush);
-    let uid = event.source.userId;
-    let row = bbsLib.searchInCol(pushSheet, 2, uid);//登録済みかどうか
+    let text = "プッシュ通知登録フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSdgPRLd64QOe0xjoNcl87IGDtkXZN49IQN780fExmKMMNfrAg/viewform";
+    reply(event, [text]);
 
-    if (row != -1) {//登録ずみだったら
-      let text = "あなたは既にプッシュ通知に登録済みです。";
-      reply(event, [text]);
-
-    } else {//未登録なら登録
-      let logary = [today_ymddhm, uid, getDisplayName(uid)];
-      bbsLib.addLogFirst(pushSheet, 2, [logary], 3, 501);//MAX500人なので古いのは削除しちゃう
-
-      let text = "プッシュ通知登録を行いました。";
-      text = text + "\n\n※通知タイミング：";
-      text = text + "\n・発注が未報告だった時の警告（朝４～５時）";
-      text = text + "\n・新人表作成時・手動削除時";
-      text = text + "\n・ファイル共有登録時・氏名変更時・解除時";
-      text = text + "\n\n※解除したい場合は、「プッシュ通知解除」コマンドを送信して下さい。";
-      reply(event, [text]);
-    }
-
-  } else if (recText == "プッシュ通知解除") {
-    let pushSheet = bbsLib.getSheetByIdGid(id_bbLog, gid_botPush);
-    let uid = event.source.userId;
-    let row = bbsLib.searchInCol(pushSheet, 2, uid);//登録済みかどうか
-
-    if (row != -1) {//登録ずみだったら
-      pushSheet.deleteRow(row);
-      let text = "プッシュ通知登録を解除しました。";
-      reply(event, [text]);
-
-    } else {//未登録だったら
-      let text = "あなたは元々プッシュ通知登録していないようです。";
-      reply(event, [text]);
-
-    }
+  } else if (recText == "プッシュ通知停止") {
+    let text = "プッシュ通知停止フォーム\n" + "https://docs.google.com/forms/d/e/1FAIpQLSeOOfCqlYouW8n1IakzqehkwvBTmpGmQ-fHish55kE_yR9mmg/viewform";
+    reply(event, [text]);
 
   } else if (recText == "日報") {
     let text = "▼この内容は通常毎朝４～５時に更新されるものです。";
@@ -143,7 +113,7 @@ function makeText(event) {
     reply(event, [text]);
 
   } else {
-    let text = "次のいずれかのテキストを入力して下さい。\n\nフォルダ\nマニュアル\n発注\n週タスク\n鮮度\n清掃\n新人\n新人作成\n新人削除\nファイル共有登録\nファイル共有解除\nプッシュ通知登録\nプッシュ通知解除\n日報\n週報\n期間統計作成";
+    let text = "次のいずれかのテキストを入力して下さい。\n\nフォルダ\nマニュアル\n発注\n週タスク\n鮮度\n清掃\n新人\n新人作成\n新人削除\nファイル共有登録\nファイル共有解除\nプッシュ通知登録\nプッシュ通知停止\n日報\n週報\n期間統計作成";
     text = text + "\n\n↙左下のボタンでtxt入力とメニューを切り替えられます。";
 
     reply(event, [text]);
@@ -152,7 +122,7 @@ function makeText(event) {
 
 }
 
-//返信する（★textAryは配列）
+//返信する（★textAryは配列）※はreplyは無料らしい。
 function reply(event, textAry) {
 
   let replyUrl = "https://api.line.me/v2/bot/message/reply";
